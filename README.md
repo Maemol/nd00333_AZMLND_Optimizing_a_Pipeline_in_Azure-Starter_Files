@@ -93,7 +93,7 @@ Once the space is defined, we can apply a policy to stop a run early if it donâ€
 
     policy = BanditPolicy(slack_factor= 0.1, evaluation_interval = 1, delay_evaluation=5)
 
-From the documentaion:
+From the documentation:
 
 slack_factor  
 > The ratio used to calculate the allowed distance from the best performing experiment run. 
