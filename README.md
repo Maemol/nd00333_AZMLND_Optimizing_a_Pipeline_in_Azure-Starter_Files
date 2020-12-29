@@ -13,15 +13,15 @@ More information about the dataset can be found here: https://archive.ics.uci.ed
 
 The best performing model was found by autoML with an accuracy of **0.9167** versus **0.9104** for a hyperdrive run of a LogisticRegression model.
 
-The model from autoML is a votingEnsemble : prefittedsoftvotingclassifier.
+The model from autoML is a votingEnsemble: prefittedsoftvotingclassifier.
 
 
 ## Scikit-learn Pipeline
 
 ### Compute
 
-Compute Instances for the notebook : STANDARD_DS3_V2 (CPU Only)
-Compute cluster for the training : STANDARD_D2_V2 (CPU Only) [4 nodes]
+Compute Instances for the notebook: STANDARD_DS3_V2 (CPU Only)
+Compute cluster for the training: STANDARD_D2_V2 (CPU Only) [4 nodes]
 The compute cluster is created in the notebook. It’s a cluster of 4 nodes with a low priority setting and a min_nodes of 0. With this configuration, when there is no job, the cluster cost nothing and is only resizing on demand.
 
 ### Data Preparation
@@ -44,7 +44,7 @@ Once the data is cleaned, we split the dataset into 4 with the train_test_split(
 The algorithm used to train the model is a LogisticRegression from Scikit-Learn.
 The solver used is liblinear and the penalization is the L2 regularisation.
 
-We pass two parameters to the classifier : C and max_iter.
+We pass two parameters to the classifier: C and max_iter.
 
     parser.add_argument('--C', type=float, default=1.0, help="Inverse of regularization strength. Smaller values cause stronger regularization")
     parser.add_argument('--max_iter', type=int, default=100, help="Maximum number of iterations to converge")
@@ -67,7 +67,7 @@ Note: Estimator are now deprecated, use ScriptRunConfig instead.
 
     est = SKLearn(source_directory = '.', compute_target = cpu_cluster_name  , entry_script='train.py')   
 
-Then we specify a parameter sampling method :
+Then we specify a parameter sampling method:
 
     # Specify parameter sampler
     ps = RandomParameterSampling(
@@ -93,7 +93,7 @@ Once the space is defined, we can apply a policy to stop a run early if it don�
 
     policy = BanditPolicy(slack_factor= 0.1, evaluation_interval = 1, delay_evaluation=5)
 
-From the documentaion :
+From the documentaion:
 
 slack_factor  
 > The ratio used to calculate the allowed distance from the best performing experiment run. 
@@ -106,7 +106,7 @@ delay_evaluation
 
 **BanditPolicy** will compare each run to the best run to date and stop any run that is not approaching the best accuracy. It’s a good policy in our case because all runs are in a similar range of accuracy and the median policy would not be suited in this case.
 
-Now let’s create the object to wrap the run configuration :
+Now let’s create the object to wrap the run configuration:
 
     # Create a HyperDriveConfig using the estimator, hyperparameter sampler, and policy.
     hyperdrive_config = HyperDriveConfig(estimator=est,
@@ -177,4 +177,4 @@ If we look at the normalized confusion matrix, we can see that the model doesn�
 
 ![normalized confusion matrix](/img/normalized_confusion_matrix.png)
  
-We should probably use another metrics to find a better model, maybe using Recall instead of accuracy would be better to improve the True Positive rate.
+We should probably use other metrics to find a better model, maybe using Recall instead of accuracy would be better to improve the True Positive rate.
