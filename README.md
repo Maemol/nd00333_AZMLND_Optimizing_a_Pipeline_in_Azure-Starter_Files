@@ -160,11 +160,18 @@ Hyperdrive is a more precise tool that would be use later in the process to find
 
 AutoML found an algorithm that performed better than a fine tune LogisticRegression for our use case. It could be a good idea to select this algorithm and use hyperdrive to fine tune the hyperparameters and maybe improve the accuracy.
 Another information we learn during the autoML analysis is that the dataset has a class balancing problem due too the small sample of positive target.
+
+![class balancing detection](/img/class_balance_issue.png)
+
  
 This problem can be visualized in the raw confusion matrix:
+
+![raw confusion matrix](/img/raw_confusion_matrix.png)
 
 The amount of class 0 (28240 + 1018) is way superior of the amount of class 1 ( 1966 + 1726).
 We can also see that even if we obtain a good accuracy, the fact that we have a class imbalance issue hide the poor performance of the model.
 If we look at the normalized confusion matrix, we can see that the model doesn’t have a good prediction results for the positive class (Only 0.5325 accuracy of True Positive).
+
+![normalized confusion matrix](/img/normalized_confusion_matrix.png)
  
 We should probably use another metrics to find a better model, maybe using Recall instead of accuracy would be better to improve the True Positive rate.
