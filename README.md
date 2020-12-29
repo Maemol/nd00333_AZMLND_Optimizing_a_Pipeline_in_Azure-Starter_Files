@@ -21,7 +21,9 @@ The model from autoML is a votingEnsemble: prefittedsoftvotingclassifier.
 ### Compute
 
 Compute Instances for the notebook: STANDARD_DS3_V2 (CPU Only)
+
 Compute cluster for the training: STANDARD_D2_V2 (CPU Only) [4 nodes]
+
 The compute cluster is created in the notebook. It’s a cluster of 4 nodes with a low priority setting and a min_nodes of 0. With this configuration, when there is no job, the cluster cost nothing and is only resizing on demand.
 
 ### Data Preparation
