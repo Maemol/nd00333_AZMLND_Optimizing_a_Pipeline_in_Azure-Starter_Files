@@ -29,7 +29,7 @@ The compute cluster is created in the notebook. It’s a cluster of 4 nodes with
 First, we want to create a TabularDataset object from a csv file available at a url.
 We use TabularDatasetFactory.from_delimited_files() method to create the TabularDataset. 
 Then we use the clean_data() method to prepare the data for the training process.
--	jobs, contact and education features are transformed from categorical variable to dummies variable.
+-	jobs, contact and education features are transformed from categorical variables to dummy variables.
 -	days_of_week and month are mapped to a dict value.
 -	Binary features like loan are convert into Boolean (1 if loan else 0)
 
