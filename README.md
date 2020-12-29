@@ -150,6 +150,9 @@ A VotingEnsemble is a soft Voting/Majority Rule classifier. It combines the pred
 
 The difference in accuracy is small but AutoML won the match. It can be explained by the fact that autoML used several algorithms versus only one for the hyperdrive run.
 
+> Accuracy of best autoML model vs best HDR model is 0.9167223065250379 vs 0.9104704097116844
+
+
 Both have the same data preparation steps. The only difference is the approach to solve the problem (predict the value of y). Hyperdrive could be use to test different model too, we could pass a parameter with a list of model names that would be defined in the train.py script but it’s so much easier to do an autoML run in comparison. No training script is required.
 
 AutoML is a good tool to use at the beginning of a project. It could be included in the EDA steps. It allows us to find a base accuracy and the explanation tab can be used to see the most important features.
