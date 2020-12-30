@@ -146,7 +146,32 @@ The compute cluster is the same (4 nodes, CPU only) and we put an experiment tim
 
 In 30 minutes, the autoML had the time to do 37 runs testing different combinations of scaling + algorithm (MaxAbsScaler + LightGBM, RobustScaler + LightGBM, …) and the best accuracy was obtained with a VotingEnsemble Model with an accuracy of 0.9167.
 
-A VotingEnsemble is a soft Voting/Majority Rule classifier. It combines the predictions from multiple other models.
+A VotingEnsemble is a soft Voting/Majority Rule classifier. It combines the predictions from multiple models.
+
+This is the result of run_autoML.get_output()
+
+
+    ('prefittedsoftvotingclassifier',...
+                                                                                                objective=None,
+                                                                                                random_state=None,
+                                                                                                reg_alpha=0,
+                                                                                                reg_lambda=0.42105263157894735,
+                                                                                                silent=True,
+                                                                                                subsample=1,
+                                                                                                subsample_for_bin=200000,
+                                                                                                subsample_freq=0,
+                                                                                                verbose=-10))],
+                                                                     verbose=False))],
+                                               flatten_transform=None,
+                                               weights=[0.26666666666666666,
+                                                        0.13333333333333333,
+                                                        0.3333333333333333,
+                                                        0.06666666666666667,
+                                                        0.06666666666666667,
+                                                        0.06666666666666667,
+                                                        0.06666666666666667]))],
+
+We have here a peek to the model pipeline with parameters from a XGBoost algorithm and the weight for each estimators used by the EnsembleModel.
 
 ## Pipeline comparison
 
