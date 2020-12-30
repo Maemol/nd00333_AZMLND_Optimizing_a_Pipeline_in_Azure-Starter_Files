@@ -150,6 +150,29 @@ A VotingEnsemble is a soft Voting/Majority Rule classifier. It combines the pred
 
 ## Pipeline comparison
 
+AutoML architecture is composed of 5 steps : 
+- Data preparation
+
+Same as the hyperdrive architecture
+- Target metrics
+
+Specify that it's a classification and that the primary metric will be accuracy. This step is similar to the hyperdrive architecture too but with less code required (no entry script is needed).
+- Target compute
+
+Same as the hyperdrive architecture
+- AutoML runs
+
+This part is specific to AutoML architecture, each iteration a new run will be launch with a combination of an algorithm and hyperparameters. After each runs, AutoML will learn from the past run and adjust the combination for the nexts runs.
+- Leaderboard
+
+This is similar to the hyperdrive architecture but instead of only looking at the best hyperparameters, you also get the best algorithm for the task.
+
+This picture is a good summary of the AutoML Architecture.
+
+![AutoML Architecture](https://docs.microsoft.com/en-us/azure/machine-learning/media/concept-automated-ml/automl-concept-diagram2.png)
+
+Ressource : https://docs.microsoft.com/en-us/azure/machine-learning/concept-automated-ml
+
 The difference in accuracy is small but AutoML won the match. It can be explained by the fact that autoML used several algorithms versus only one for the hyperdrive run.
 
 > Accuracy of best autoML model vs best HDR model is 0.9167223065250379 vs 0.9104704097116844
