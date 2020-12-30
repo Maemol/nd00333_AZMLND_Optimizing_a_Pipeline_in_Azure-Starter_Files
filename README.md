@@ -171,7 +171,7 @@ This is the result of run_autoML.get_output()
                                                         0.06666666666666667,
                                                         0.06666666666666667]))],
 
-We have here a peek to the model pipeline with parameters from a XGBoost algorithm and the weight for each estimators used by the EnsembleModel.
+We have here a peek at the AutoML model pipeline with parameters from a XGBoost algorithm and the weight for each estimators used by the EnsembleModel.
 
 ## Pipeline comparison
 
